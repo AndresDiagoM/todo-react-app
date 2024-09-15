@@ -1,9 +1,8 @@
 // new component
-function TodoCounter() {
+function TodoCounter(props) {
   return (
     <h1>
-      Has completado 2 de 3 tareas
-      <span>🎉</span>
+      Has completado {props.completed} de {props.total} tareas <span>🎉</span>
     </h1>
   );
 }

@@ -1,26 +1,42 @@
+import React from 'react';
 import './App.css';
-import { CreateTodoButton } from './components/CreateTodoButton';
-import { TodoCounter } from './components/TodoCounter';
-import { TodoItem } from './components/TodoItem';
-import { TodoList } from './components/TodoList';
-import { TodoSearch } from './components/TodoSearch';
+import {
+  CreateTodoButton,
+  TodoCounter,
+  TodoItem,
+  TodoList,
+  TodoSearch,
+} from './components';
+
+const defaultTodos = [
+  { text: 'Cortar cebolla', completed: false },
+  { text: 'Tomar el curso de intro a React', completed: false },
+  { text: 'Llorar con la llorona', completed: false },
+  { text: 'LALALALALALALALA', completed: false },
+  { text: 'Hacer la comida', completed: false },
+];
 
 function App() {
   // This is a functional component
   return (
     //This is not HTML, this is JSX, js with xml syntax
-    <div className="App">
-      <TodoCounter />
+    <React.Fragment>
+      <TodoCounter completed={3} total={5} />
       <TodoSearch />
 
       <TodoList>
+        {defaultTodos.map((todo) => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
+        ))}
         <TodoItem count={3} />
-        <TodoItem count={1} />
-        <TodoItem count={5} />
       </TodoList>
 
       <CreateTodoButton />
-    </div>
+    </React.Fragment>
   );
 }
 

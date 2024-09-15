@@ -1,6 +1,6 @@
 // new component
 function CreateTodoButton() {
-  return <button>+</button>;
+  return <button>Agregar Tarea</button>;
 }
 
-export { CreateTodoButton };
+export { CreateTodoButton }; //named export, to avoid importing with different names

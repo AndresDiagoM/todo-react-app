@@ -1,5 +1,5 @@
 // new component
-function TodoSearch() {
+function TodoSearch(props) {
   return <input placeholder="Cebolla" />;
 }
 

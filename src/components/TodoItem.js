@@ -3,12 +3,12 @@ function TodoItem(props) {
   return (
     <li>
       <h1>Task</h1>
-      <span>V</span>
-      <p>
-        Completaste {props.count} tareas de 5. Hora:{' '}
-        {new Date().toLocaleTimeString()}
-      </p>
-      <span></span>
+      <p>{props.text}</p>
+      {props.completed ? (
+        <button>Completed</button>
+      ) : (
+        <button>Not Completed</button>
+      )}
     </li>
   );
 }
