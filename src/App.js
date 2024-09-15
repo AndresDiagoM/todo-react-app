@@ -1,5 +1,5 @@
-import logo from './platzi.webp';
 import './App.css';
+import logo from './platzi.webp';
 
 function App() {
   return (
