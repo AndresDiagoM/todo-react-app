@@ -1,7 +1,51 @@
-h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #000000;
-  margin: 0;
+/* Styling for the counter text */
+.todo-counter {
+  font-size: 1.25rem; /* Increase font size */
+  font-weight: bold;
+  color: #3d3d3d; /* Dark text */
   text-align: center;
+  margin-bottom: 10px;
 }
+
+/* Container for the search input */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for card-like look */
+  margin: 10px 0;
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling for the search input field */
+.search-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #9b9b9b; /* Light gray text for placeholder */
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+/* Add placeholder color */
+.search-input::placeholder {
+  color: #9b9b9b;
+}
+
+/* Styling for the search icon */
+.search-icon {
+  color: #6f52ed; /* Purple icon color */
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+

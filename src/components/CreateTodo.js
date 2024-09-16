@@ -1,5 +1,5 @@
 import Lottie from 'react-lottie';
-import animationData from '../assets/lotties/animation.json';
+import animationData from '../assets/lotties/animation2.json';
 import '../assets/styles/CreateTodo.css';
 
 // new component
@@ -17,7 +17,7 @@ function CreateTodo(props) {
       <div className="create-todo-container">
         <h1>Create new task</h1>
         <p>Task Name</p>
-        <input placeholder="Cebolla" />
+        <input placeholder="Launch rocket to the moon" />
         <button>Create</button>
         <div>
           <Lottie options={defaultOptions} height={400} width={400} />

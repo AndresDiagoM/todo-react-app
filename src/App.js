@@ -5,13 +5,12 @@ import {
   TodoCounter,
   TodoItem,
   TodoList,
-  TodoSearch,
   YourTask,
 } from './components';
 
 const defaultTodos = [
   { text: 'Cortar cebolla', completed: false },
-  { text: 'Tomar el curso de intro a React', completed: false },
+  { text: 'Tomar el curso de intro a React', completed: true },
   { text: 'Llorar con la llorona', completed: false },
   { text: 'LALALALALALALALA', completed: false },
 ];
@@ -25,7 +24,6 @@ function App() {
 
       <YourTask>
         <TodoCounter completed={3} total={5} />
-        <TodoSearch />
 
         <TodoList>
           {defaultTodos.map((todo) => (
