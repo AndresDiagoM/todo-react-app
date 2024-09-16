@@ -1,0 +1,21 @@
+.your-tasks-container {
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.your-tasks-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 10px;
+  text-align: center;
+  background: linear-gradient(to right, #add8e6, #ffa07a); /* Light blue to smooth orange gradient */
+  -webkit-background-clip: text;
+  background-clip: text; /* Standard property for compatibility */
+  -webkit-text-fill-color: transparent;
+}

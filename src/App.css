@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
-}
+/* src/App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #233553;
-  min-height: 100vh;
+.app-container {
+  min-height: 100vh; /* Ensures the container takes the full viewport height */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: relative; /* To position the pseudo-elements */
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; /* To ensure background effects don't overflow */
 }
 
-.App-link {
-  color: #97ca3f;
+/* Orange circle in the top left */
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: -200px; /* Positioning off the top */
+  left: -200px; /* Positioning off the left */
+  width: 500px; /* Adjust the size to your liking */
+  height: 500px;
+  background: rgb(250, 133, 86); /* Light Salmon (#FFA07A) */
+  /* rgba params are ( R, G, B, A ) where A is the alpha (transparency) */
+  border-radius: 50%; /* Makes it a circle */
+  z-index: -1; /* Places it behind the content */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Blue circle in the bottom right */
+.app-container::after {
+  content: '';
+  position: absolute;
+  bottom: -150px; /* Positioning off the bottom */
+  right: -150px; /* Positioning off the right */
+  width: 400px; /* Adjust the size to your liking */
+  height: 400px;
+  background: rgba(100, 150, 255, 0.3); /* Light blue */
+  border-radius: 50%; /* Makes it a circle */
+  z-index: -1; /* Places it behind the content */
+}
+
+.create-todo {
+  margin-right: 20px; /* Add some space between the two containers */
 }

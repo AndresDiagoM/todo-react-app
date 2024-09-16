@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import {
-  CreateTodoButton,
+  CreateTodo,
   TodoCounter,
   TodoItem,
   TodoList,
   TodoSearch,
+  YourTask,
 } from './components';
 
 const defaultTodos = [
@@ -13,30 +14,31 @@ const defaultTodos = [
   { text: 'Tomar el curso de intro a React', completed: false },
   { text: 'Llorar con la llorona', completed: false },
   { text: 'LALALALALALALALA', completed: false },
-  { text: 'Hacer la comida', completed: false },
 ];
 
 function App() {
   // This is a functional component
   return (
     //This is not HTML, this is JSX, js with xml syntax
-    <React.Fragment>
-      <TodoCounter completed={3} total={5} />
-      <TodoSearch />
+    <div className="app-container">
+      <CreateTodo className="create-todo" />
 
-      <TodoList>
-        {defaultTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-        <TodoItem count={3} />
-      </TodoList>
+      <YourTask>
+        <TodoCounter completed={3} total={5} />
+        <TodoSearch />
 
-      <CreateTodoButton />
-    </React.Fragment>
+        <TodoList>
+          {defaultTodos.map((todo) => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              className="todo-item"
+            />
+          ))}
+        </TodoList>
+      </YourTask>
+    </div>
   );
 }
 

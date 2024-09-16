@@ -1,3 +1,5 @@
+import '../assets/styles/TodoCounter.css';
+
 // new component
 function TodoCounter(props) {
   return (
