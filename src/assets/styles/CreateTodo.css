@@ -8,6 +8,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
   max-width: 400px;
   text-align: left;
+
+  font-family: 'Poppins', sans-serif;
 }
 
 .create-todo-container h1 {

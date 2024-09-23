@@ -18,7 +18,7 @@ const defaultTodos = [
 function App() {
   // This is a functional component
   return (
-    //This is not HTML, this is JSX, js with xml syntax
+    // This is not HTML, this is JSX, js with xml syntax
     <div className="app-container">
       <CreateTodo className="create-todo" />
 

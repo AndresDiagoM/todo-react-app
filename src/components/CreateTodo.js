@@ -4,28 +4,28 @@ import '../assets/styles/CreateTodo.css';
 
 // new component
 function CreateTodo(props) {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
-  return (
-    <>
-      <div className="create-todo-container">
-        <h1>Create new task</h1>
-        <p>Task Name</p>
-        <input placeholder="Launch rocket to the moon" />
-        <button>Create</button>
-        <div>
-          <Lottie options={defaultOptions} height={400} width={400} />
-        </div>
-      </div>
-    </>
-  );
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData,
+		rendererSettings: {
+			preserveAspectRatio: 'xMidYMid slice',
+		},
+	};
+	return (
+		<>
+			<div className='create-todo-container'>
+				<h1>Create new task</h1>
+				<p>Task Name</p>
+				<input placeholder='Launch rocket to the moon' />
+				<button onClick={() => console.log('evento click')}>Create</button>
+				<div>
+					<Lottie options={defaultOptions} height={400} width={400} />
+				</div>
+			</div>
+		</>
+	);
 }
 
 export { CreateTodo };
-//named export, to avoid importing with different names
+// named export, to avoid importing with different names

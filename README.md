@@ -73,3 +73,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Config eslint and prettier
+
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
+
+ npx eslint --init    
+
+ npx eslint .\src\components\ --fix   
+
+ npm i -D eslint-config-prettier   
+
+ npx prettier .\src\components --write     
