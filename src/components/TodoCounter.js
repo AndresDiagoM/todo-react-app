@@ -8,7 +8,13 @@ function TodoCounter(props) {
 				Completed {props.completed} to {props.total}
 			</h1>
 			<div className='search-container'>
-				<input placeholder='Search...' className='search-input' />
+				<input
+					placeholder='Search...'
+					className='search-input'
+					onChange={event => {
+						console.log(event.target.value);
+					}}
+				/>
 				<span className='search-icon'>&#128269;</span>
 			</div>
 		</>
