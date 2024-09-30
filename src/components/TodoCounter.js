@@ -9,7 +9,7 @@ function TodoCounter(props) {
 	 * The state is inmutable, so it can't be changed directly, it has to be changed by the method setState.
 	 */
 
-	console.log('Los usuarios han completado: ', searchValue);
+	// console.log('Los usuarios han completado: ', searchValue);
   // console.log is executed every time the component is rendered
 
 	return (
@@ -25,6 +25,7 @@ function TodoCounter(props) {
 					onChange={event => {
 						// console.log(event.target.value);
 						setSearchValue(event.target.value);
+            props.searchTasks(event.target.value);
 					}}
 					type='text'
 					aria-label='Search Todos'

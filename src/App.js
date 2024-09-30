@@ -31,17 +31,22 @@ function App() {
 	};
 
 	const completeTask = text => {
-		const newTodos = todos.map(todo => {
-			if (todo.text === text && !todo.completed) {
-				return { ...todo, completed: true };
-			} else if (todo.completed && todo.text === text) {
-        return { ...todo, completed: false };
-      }
-			return todo;
-		});
+		const newTodos = todos.map(todo =>
+			todo.text === text ? { ...todo, completed: !todo.completed } : todo
+		);
 		setTodos(newTodos);
 		setCompleted(newTodos.filter(todo => todo.completed).length);
 	};
+
+  // for searching the task in the list
+  const searchTasks = text => {
+    const filteredTodos = text === ''
+      ? defaultTodos
+      : todos.filter(todo => todo.text.includes(text));
+
+    setTodos(filteredTodos);
+    setCompleted(filteredTodos.filter(todo => todo.completed).length);
+  };
 
 	return (
 		// This is not HTML, this is JSX, js with xml syntax
@@ -49,7 +54,11 @@ function App() {
 			<CreateTodo className='create-todo' addTask={addTask} />
 
 			<YourTask>
-				<TodoCounter completed={completed} total={total} />
+				<TodoCounter
+					completed={completed}
+					total={total}
+					searchTasks={searchTasks}
+				/>
 
 				<TodoList>
 					{todos.map(todo => (
