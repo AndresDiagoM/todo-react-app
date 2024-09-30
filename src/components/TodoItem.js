@@ -1,15 +1,20 @@
 import '../assets/styles/TodoItem.css';
 
 // new component
-function TodoItem(props) {
+function TodoItem({ completed, text, completeTask }) {
 	return (
-		<li
-			className={`todo-item ${props.completed ? 'completed' : 'not-completed'}`}
-		>
-			<div className='checkbox-container'>
-				{props.completed && <span className='completed-circle'></span>}
+		<li className={`todo-item ${completed ? 'completed' : 'not-completed'}`}>
+			<div
+				className='checkbox-container'
+				onClick={() => {
+					completeTask(text);
+				}}
+			>
+				<span
+					className={`circle ${completed ? 'completed-circle' : ''}`}
+				></span>
 			</div>
-			<p>{props.text}</p>
+			<p>{text}</p>
 		</li>
 	);
 }
