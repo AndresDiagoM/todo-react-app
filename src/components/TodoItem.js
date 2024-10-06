@@ -1,28 +1,17 @@
 import '../assets/styles/TodoItem.css';
+import { CompleteIcon } from './icons/CompleteIcon';
+import { DeleteIcon } from './icons/DeleteIcon';
 
 // new component
 function TodoItem({ completed, text, completeTask, deleteTask }) {
 	return (
 		<li className={`todo-item ${completed ? 'completed' : 'not-completed'}`}>
-			<div
-				className='checkbox-container'
-				onClick={() => {
-					completeTask(text);
-				}}
-			>
-				<span
-					className={`circle ${completed ? 'completed-circle' : ''}`}
-				></span>
-			</div>
+			<CompleteIcon
+				completed={completed}
+				onClick={() => completeTask(text)}
+			/>
 			<p>{text}</p>
-			<button
-				className='delete-button'
-				onClick={() => {
-					deleteTask(text);
-				}}
-			>
-				Delete
-			</button>
+			<DeleteIcon onClick={() => deleteTask(text)} />
 		</li>
 	);
 }
