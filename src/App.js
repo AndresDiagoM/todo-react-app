@@ -7,12 +7,18 @@ import {
 	TodoList,
 	YourTask,
 } from './components';
+import Confetti from 'react-confetti';
+
 
 const defaultTodos = [
-	{ text: 'Cortar cebolla', completed: false },
-	{ text: 'Tomar el curso de intro a React', completed: true },
-	{ text: 'Llorar con la llorona', completed: false },
-	{ text: 'LALALALALALALALA', completed: false },
+	{ text: 'Cortar cebolla', completed: false, isDeleted: false },
+	{
+		text: 'Tomar el curso de intro a React',
+		completed: true,
+		isDeleted: false,
+	},
+	{ text: 'Llorar con la llorona', completed: false, isDeleted: false },
+	{ text: 'LALALALALALALALA', completed: false, isDeleted: false },
 ];
 
 // This is a functional component
@@ -22,6 +28,20 @@ function App() {
 		defaultTodos.filter(todo => todo.completed).length
 	);
 	const [total, setTotal] = React.useState(defaultTodos.length);
+  const [showConfetti, setShowConfetti] = React.useState(false);
+
+
+  const deleteTask = text => {
+    const newTodos = todos.map(todo =>
+      todo.text === text ? { ...todo, isDeleted: true } : todo
+    );
+
+    const filteredTodos = newTodos.filter(todo => !todo.isDeleted);
+
+    setTodos(filteredTodos);
+    setTotal(filteredTodos.length);
+    setCompleted(filteredTodos.filter(todo => todo.completed).length);
+  };
 
 	const addTask = text => {
 		const newTodos = [...todos, { text, completed: false }];
@@ -36,17 +56,27 @@ function App() {
 		);
 		setTodos(newTodos);
 		setCompleted(newTodos.filter(todo => todo.completed).length);
+
+    // if all tasks are completed, then show confetti
+    if (newTodos.length === newTodos.filter(todo => todo.completed).length) {
+      console.log('All tasks are completed');
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 5000);
+    }
 	};
 
-  // for searching the task in the list
-  const searchTasks = text => {
-    const filteredTodos = text === ''
-      ? defaultTodos
-      : todos.filter(todo => todo.text.includes(text));
+	// for searching the task in the list
+	const searchTasks = text => {
+		const filteredTodos =
+			text === ''
+				? defaultTodos
+				: todos.filter(todo =>
+						todo.text.toLowerCase().includes(text.toLowerCase())
+					);
 
-    setTodos(filteredTodos);
-    setCompleted(filteredTodos.filter(todo => todo.completed).length);
-  };
+		setTodos(filteredTodos);
+		setCompleted(filteredTodos.filter(todo => todo.completed).length);
+	};
 
 	return (
 		// This is not HTML, this is JSX, js with xml syntax
@@ -61,6 +91,7 @@ function App() {
 				/>
 
 				<TodoList>
+          {showConfetti && <Confetti />}
 					{todos.map(todo => (
 						<TodoItem
 							key={todo.text}
@@ -68,6 +99,7 @@ function App() {
 							completed={todo.completed}
 							className='todo-item'
 							completeTask={completeTask}
+              deleteTask={deleteTask}
 						/>
 					))}
 				</TodoList>

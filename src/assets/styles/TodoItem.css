@@ -63,3 +63,18 @@
   border-radius: 50%;
 }
 
+/* Delete button */
+.delete-button {
+  background-color: #ff4d4d;
+  color: rgb(255, 131, 131);
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: auto; /* Align to the right */
+}
+
+.delete-button:hover {
+  background-color: #ff1a1a;
+  color: #fff;
+}

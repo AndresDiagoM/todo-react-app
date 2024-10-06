@@ -1,7 +1,7 @@
 import '../assets/styles/TodoItem.css';
 
 // new component
-function TodoItem({ completed, text, completeTask }) {
+function TodoItem({ completed, text, completeTask, deleteTask }) {
 	return (
 		<li className={`todo-item ${completed ? 'completed' : 'not-completed'}`}>
 			<div
@@ -15,6 +15,14 @@ function TodoItem({ completed, text, completeTask }) {
 				></span>
 			</div>
 			<p>{text}</p>
+			<button
+				className='delete-button'
+				onClick={() => {
+					deleteTask(text);
+				}}
+			>
+				Delete
+			</button>
 		</li>
 	);
 }
