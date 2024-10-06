@@ -7,6 +7,8 @@ import {
 	TodoList,
 	YourTask,
 } from './components';
+import Confetti from 'react-confetti';
+
 
 const defaultTodos = [
 	{ text: 'Cortar cebolla', completed: false, isDeleted: false },
@@ -26,6 +28,8 @@ function App() {
 		defaultTodos.filter(todo => todo.completed).length
 	);
 	const [total, setTotal] = React.useState(defaultTodos.length);
+  const [showConfetti, setShowConfetti] = React.useState(false);
+
 
   const deleteTask = text => {
     const newTodos = todos.map(todo =>
@@ -52,6 +56,13 @@ function App() {
 		);
 		setTodos(newTodos);
 		setCompleted(newTodos.filter(todo => todo.completed).length);
+
+    // if all tasks are completed, then show confetti
+    if (newTodos.length === newTodos.filter(todo => todo.completed).length) {
+      console.log('All tasks are completed');
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 5000);
+    }
 	};
 
 	// for searching the task in the list
@@ -80,6 +91,7 @@ function App() {
 				/>
 
 				<TodoList>
+          {showConfetti && <Confetti />}
 					{todos.map(todo => (
 						<TodoItem
 							key={todo.text}
