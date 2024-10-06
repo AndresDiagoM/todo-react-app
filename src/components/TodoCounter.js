@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaSearch } from 'react-icons/fa';
 import '../assets/styles/TodoCounter.css';
 
 // new component
@@ -10,7 +11,7 @@ function TodoCounter(props) {
 	 */
 
 	// console.log('Los usuarios han completado: ', searchValue);
-  // console.log is executed every time the component is rendered
+	// console.log is executed every time the component is rendered
 
 	return (
 		<>
@@ -25,12 +26,14 @@ function TodoCounter(props) {
 					onChange={event => {
 						// console.log(event.target.value);
 						setSearchValue(event.target.value);
-            props.searchTasks(event.target.value);
+						props.searchTasks(event.target.value);
 					}}
 					type='text'
 					aria-label='Search Todos'
 				/>
-				<span className='search-icon'>&#128269;</span>
+				<span className='search-icon'>
+					<FaSearch />
+				</span>
 			</div>
 		</>
 	);
