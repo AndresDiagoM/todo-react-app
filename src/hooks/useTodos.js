@@ -1,0 +1,67 @@
+import React from 'react';
+
+function useTodos(todos, setTodos) {
+	// State for search results
+	const [displayedTodos, setDisplayedTodos] = React.useState(todos);
+
+	// Derived state, to keep track of the completed tasks
+	const [completed, setCompleted] = React.useState(
+		todos.filter(todo => todo.completed).length
+	);
+	const [total, setTotal] = React.useState(todos.length);
+
+	// Methods to manage the todos
+	const addTask = text => {
+		const newTodos = [...todos, { text, completed: false }];
+		setTodos(newTodos);
+		setDisplayedTodos(newTodos);
+		setTotal(newTodos.length);
+	};
+
+	const deleteTask = text => {
+		const newTodos = todos.map(todo =>
+			todo.text === text ? { ...todo, isDeleted: true } : todo
+		);
+
+		const filteredTodos = newTodos.filter(todo => !todo.isDeleted);
+
+		setTodos(filteredTodos);
+		setDisplayedTodos(filteredTodos);
+		setTotal(filteredTodos.length);
+		setCompleted(filteredTodos.filter(todo => todo.completed).length);
+	};
+
+	const completeTask = text => {
+		const newTodos = todos.map(todo =>
+			todo.text === text ? { ...todo, completed: !todo.completed } : todo
+		);
+		setTodos(newTodos);
+		setDisplayedTodos(newTodos);
+		setCompleted(newTodos.filter(todo => todo.completed).length);
+	};
+
+	const searchTasks = text => {
+		const filteredTodos =
+			text === ''
+				? todos
+				: todos.filter(todo =>
+						todo.text.toLowerCase().includes(text.toLowerCase())
+					);
+
+		setDisplayedTodos(filteredTodos);
+		setCompleted(filteredTodos.filter(todo => todo.completed).length);
+	};
+
+	return {
+		todos,
+		displayedTodos,
+		completed,
+		total,
+		addTask,
+		deleteTask,
+		completeTask,
+		searchTasks,
+	};
+}
+
+export { useTodos };
