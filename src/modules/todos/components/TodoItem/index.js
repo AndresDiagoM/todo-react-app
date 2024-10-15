@@ -1,6 +1,6 @@
-import '../assets/styles/TodoItem.css';
-import { CompleteIcon } from './icons/CompleteIcon';
-import { DeleteIcon } from './icons/DeleteIcon';
+import './TodoItem.css';
+import { CompleteIcon } from '../icons/CompleteIcon';
+import { DeleteIcon } from '../icons/DeleteIcon';
 
 // new component
 function TodoItem({ completed, text, completeTask, deleteTask }) {

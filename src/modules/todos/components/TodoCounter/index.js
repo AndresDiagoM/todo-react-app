@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
-import '../assets/styles/TodoCounter.css';
+import './TodoCounter.css';
 
 // new component
 function TodoCounter(props) {

@@ -1,4 +1,4 @@
-import '../assets/styles/YourTasks.css';
+import './YourTasks.css';
 
 function YourTask(props) {
 	return (

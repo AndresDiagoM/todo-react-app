@@ -12,6 +12,38 @@ La rama principal contiene el código con el que eempezamos el curso. En las dem
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project folder structure
+
+This project follows the feature-first folder structure. This means that the project is divided into features, and each feature has its own folder with all the components, hooks, and styles it needs.
+
+```
+src/
+  features/
+    todos/
+      components/
+        [CreateTodo.js]
+        [TodoCounter.js]
+        [TodoItem.js]
+        TodoList.js
+        [YourTask.js]
+      hooks/
+        [useLocalStorage.js]
+        [useTodos.js]
+      styles/
+        TodoCounter.css
+        TodoItem.css
+        YourTasks.css
+      TodoContext.js
+      TodoService.js
+  assets/
+    lotties/
+      animation.json
+      ...
+    styles/
+  [App.js]
+  [index.js]
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

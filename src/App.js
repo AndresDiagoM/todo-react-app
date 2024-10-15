@@ -7,9 +7,9 @@ import {
 	TodoItem,
 	TodoList,
 	YourTask,
-} from './components';
-import { useLocalStorage } from './hooks/useLocalStorage';
-import { useTodos } from './hooks/useTodos';
+} from './modules/todos/components';
+import { useLocalStorage } from './modules/todos/hooks/useLocalStorage';
+import { useTodos } from './modules/todos/hooks/useTodos';
 
 // This is a functional component
 function App() {
@@ -32,7 +32,7 @@ function App() {
 	// state to show confetti when all tasks are completed
 	const [showConfetti, setShowConfetti] = React.useState(false);
 
-  // useEffect to show confetti when all tasks are completed
+	// useEffect to show confetti when all tasks are completed
 	React.useEffect(() => {
 		if (todos.length === todos.filter(todo => todo.completed).length) {
 			setShowConfetti(true);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../assets/lotties/animation2.json';
-import '../assets/styles/CreateTodo.css';
+import animationData from './lotties/animation2.json';
+import './CreateTodo.css';
 
 // new component
 function CreateTodo({ addTask }) {
