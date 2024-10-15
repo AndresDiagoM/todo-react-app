@@ -7,9 +7,9 @@ import {
 	TodoItem,
 	TodoList,
 	YourTask,
-} from './modules/todos/components';
-import { useLocalStorage } from './modules/todos/hooks/useLocalStorage';
-import { useTodos } from './modules/todos/hooks/useTodos';
+} from '../todos/components';
+import { useLocalStorage } from './useLocalStorage';
+import { useTodos } from '../todos/hooks/useTodos';
 
 // This is a functional component
 function App() {
