@@ -1,6 +1,7 @@
 {
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
+  "homepage": "https://andresdiagom.github.io/curso-react-platzi/",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18",
@@ -16,7 +17,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "lint": "eslint --fix . --ext .js,.jsx"
+    "lint": "eslint --fix . --ext .js,.jsx",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -39,6 +41,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-promise": "^6.6.0",
     "eslint-plugin-react": "^7.36.1",
+    "gh-pages": "^6.2.0",
     "prettier": "^3.3.3"
   }
 }
