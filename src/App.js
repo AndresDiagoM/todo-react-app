@@ -26,17 +26,32 @@ import {
 
 // This is a functional component
 function App() {
-	const storedTodos = JSON.parse(localStorage.getItem('todos_v1')) || [];
-	if (storedTodos.length === 0) {
-		console.log('No tasks found in localStorage');
-	}
+  // De esta forma se accede a localStorage, pero se accede cada vez que se renderiza el componente, entonces mejor no hacer esto. ❌
+	// const storedTodos = JSON.parse(localStorage.getItem('todos_v1')) || [];
+	// if (storedTodos.length === 0) {
+	// 	console.log('No tasks found in localStorage');
+	// }
 
 	// define todos as useState to keep track of the state
-	const [todos, setTodos] = React.useState(storedTodos);
+	const [todos, setTodos] = React.useState(() => {
+    // De esta forma, se accede a localStorage solo una vez, cuando se monta el componente. ✅
+    const storedTodos = localStorage.getItem('todos_v1')
+    if (storedTodos) return JSON.parse(storedTodos)
+    console.log('No tasks found in localStorage');
+    return []
+  })
+  // const [todos, setTodos] = React.useState(storedTodos);
+
+  // State for search results
+  const [displayedTodos, setDisplayedTodos] = React.useState(todos);
+
+  // derived state, to keep track of the completed tasks
 	const [completed, setCompleted] = React.useState(
-		storedTodos.filter(todo => todo.completed).length
+		todos.filter(todo => todo.completed).length
 	);
-	const [total, setTotal] = React.useState(storedTodos.length);
+	const [total, setTotal] = React.useState(todos.length);
+
+  // state to show confetti when all tasks are completed
 	const [showConfetti, setShowConfetti] = React.useState(false);
 
 	// Update localStorage whenever todos state changes
@@ -55,6 +70,7 @@ function App() {
 
 		setTodos(filteredTodos);
 		setTotal(filteredTodos.length);
+    setDisplayedTodos(filteredTodos);
 		setCompleted(filteredTodos.filter(todo => todo.completed).length);
 	};
 
@@ -62,6 +78,7 @@ function App() {
 		const newTodos = [...todos, { text, completed: false }];
 		console.log('Nueva tarea: ', text);
 		setTodos(newTodos);
+    setDisplayedTodos(newTodos);
 		setTotal(newTodos.length);
 	};
 
@@ -70,6 +87,7 @@ function App() {
 			todo.text === text ? { ...todo, completed: !todo.completed } : todo
 		);
 		setTodos(newTodos);
+    setDisplayedTodos(newTodos);
 		setCompleted(newTodos.filter(todo => todo.completed).length);
 
 		// if all tasks are completed, then show confetti
@@ -84,12 +102,13 @@ function App() {
 	const searchTasks = text => {
 		const filteredTodos =
 			text === ''
-				? storedTodos
+				? todos
 				: todos.filter(todo =>
 						todo.text.toLowerCase().includes(text.toLowerCase())
 					);
 
-		setTodos(filteredTodos);
+		// setTodos(filteredTodos);
+    setDisplayedTodos(filteredTodos);
 		setCompleted(filteredTodos.filter(todo => todo.completed).length);
 	};
 
@@ -107,7 +126,7 @@ function App() {
 
 				<TodoList>
 					{showConfetti && <Confetti />}
-					{todos.map(todo => (
+					{displayedTodos.map(todo => (
 						<TodoItem
 							key={todo.text}
 							text={todo.text}
