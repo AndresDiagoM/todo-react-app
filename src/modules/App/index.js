@@ -1,13 +1,6 @@
 import React from 'react';
-import Confetti from 'react-confetti';
 import './App.css';
-import {
-	CreateTodo,
-	TodoCounter,
-	TodoItem,
-	TodoList,
-	YourTask,
-} from '../todos/components';
+import { AppUI } from './AppUI';
 import { useLocalStorage } from './useLocalStorage';
 import { useTodos } from '../todos/hooks/useTodos';
 
@@ -41,32 +34,16 @@ function App() {
 	}, [todos]);
 
 	return (
-		// This is not HTML, this is JSX, js with xml syntax
-		<div className='app-container'>
-			<CreateTodo className='create-todo' addTask={addTask} />
-
-			<YourTask>
-				<TodoCounter
-					completed={completed}
-					total={total}
-					searchTasks={searchTasks}
-				/>
-
-				<TodoList>
-					{showConfetti && <Confetti />}
-					{displayedTodos.map(todo => (
-						<TodoItem
-							key={todo.text}
-							text={todo.text}
-							completed={todo.completed}
-							className='todo-item'
-							completeTask={completeTask}
-							deleteTask={deleteTask}
-						/>
-					))}
-				</TodoList>
-			</YourTask>
-		</div>
+    <AppUI
+      displayedTodos={displayedTodos}
+      completed={completed}
+      total={total}
+      addTask={addTask}
+      deleteTask={deleteTask}
+      completeTask={completeTask}
+      searchTasks={searchTasks}
+      showConfetti={showConfetti}
+    />
 	);
 }
 
