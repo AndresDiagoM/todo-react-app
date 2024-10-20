@@ -1,0 +1,28 @@
+.todo-error {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid red;
+    background-color: #ffe6e6;
+    border-radius: 5px;
+}
+
+.todo-error h2 {
+    color: red;
+}
+
+.todo-error p {
+    color: #333;
+}
+
+.todo-error button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo-error button:hover {
+    background-color: darkred;
+}

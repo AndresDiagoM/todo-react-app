@@ -5,6 +5,8 @@ import {
 	TodoItem,
 	TodoList,
 	YourTask,
+  TodoLoading,
+  TodoError,
 } from '../todos/components';
 
 function AppUI({
@@ -16,9 +18,8 @@ function AppUI({
 	completeTask,
 	searchTasks,
 	showConfetti,
-  loading,
-  error,
-  setError,
+	loading,
+	error,
 }) {
 	return (
 		// This is not HTML, this is JSX, js with xml syntax
@@ -34,18 +35,19 @@ function AppUI({
 
 				<TodoList>
 					{showConfetti && <Confetti />}
-          {loading && <p>Loading...</p>}
-          {error && <p>Error: {error.message}</p>}
-					{!loading && displayedTodos.map(todo => (
-						<TodoItem
-							key={todo.text}
-							text={todo.text}
-							completed={todo.completed}
-							className='todo-item'
-							completeTask={completeTask}
-							deleteTask={deleteTask}
-						/>
-					))}
+					{loading && <TodoLoading />}
+					{error && <TodoError error={error} />}
+					{!loading &&
+						displayedTodos.map(todo => (
+							<TodoItem
+								key={todo.text}
+								text={todo.text}
+								completed={todo.completed}
+								className='todo-item'
+								completeTask={completeTask}
+								deleteTask={deleteTask}
+							/>
+						))}
 				</TodoList>
 			</YourTask>
 		</div>

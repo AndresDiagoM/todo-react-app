@@ -1,0 +1,29 @@
+.skeleton {
+	background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+	background-size: 200% 100%;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton-item {
+  width: 150px;
+  height: 25px;
+	padding: 15px;
+	margin: 10px 0;
+	display: flex;
+	align-items: center; /* Align items horizontally */
+	border-radius: 12px; /* Rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
