@@ -16,6 +16,9 @@ function AppUI({
 	completeTask,
 	searchTasks,
 	showConfetti,
+  loading,
+  error,
+  setError,
 }) {
 	return (
 		// This is not HTML, this is JSX, js with xml syntax
@@ -31,7 +34,9 @@ function AppUI({
 
 				<TodoList>
 					{showConfetti && <Confetti />}
-					{displayedTodos.map(todo => (
+          {loading && <p>Loading...</p>}
+          {error && <p>Error: {error.message}</p>}
+					{!loading && displayedTodos.map(todo => (
 						<TodoItem
 							key={todo.text}
 							text={todo.text}

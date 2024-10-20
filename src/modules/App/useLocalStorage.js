@@ -1,18 +1,40 @@
 import React from 'react';
 
-function useLocalStorage(key, initialValue) {
-	// Get from local storage then
-	const [items, setItems] = React.useState(() => {
-    const storedItems = localStorage.getItem(key);
-    return storedItems ? JSON.parse(storedItems) : initialValue;
-  });
+function useLocalStorage(localStorageKey, initialValue) {
+	const [items, setItems] = React.useState(initialValue);
+	const [loading, setLoading] = React.useState(true);
+	const [error, setError] = React.useState(false);
+
+	// Read LocalStorage when the component mounts
+	React.useEffect(() => {
+		setTimeout(() => {
+			try {
+				const localStorageItems = localStorage.getItem(localStorageKey);
+				if (localStorageItems) {
+					setItems(JSON.parse(localStorageItems));
+				}
+			} catch (err) {
+				setError(true);
+			} finally {
+				setLoading(false);
+			}
+			console.log('Leer de localStorage');
+		}, 2000);
+	}, []);
 
 	// Update localStorage whenever items state changes. It saves the initial value in localStorage
 	React.useEffect(() => {
-		localStorage.setItem(key, JSON.stringify(items));
-	}, [items, key]);
+		if (JSON.stringify(items) !== JSON.stringify(initialValue)) {
+			try {
+				localStorage.setItem(localStorageKey, JSON.stringify(items));
+				console.log('Guardar en localStorage');
+			} catch (err) {
+				setError(true);
+			}
+		}
+	}, [items]);
 
-	return [items, setItems];
+	return { items, setItems, loading, error, setError };
 }
 
 export { useLocalStorage };

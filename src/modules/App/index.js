@@ -1,13 +1,19 @@
 import React from 'react';
+import { useTodos } from '../todos/hooks/useTodos';
 import './App.css';
 import { AppUI } from './AppUI';
 import { useLocalStorage } from './useLocalStorage';
-import { useTodos } from '../todos/hooks/useTodos';
 
 // This is a functional component
 function App() {
 	// State for the list of tasks
-	const [todos, setTodos] = useLocalStorage('todos_v1', [
+	const {
+		items: todos,
+		setItems: setTodos,
+		loading,
+		error,
+		setError,
+	} = useLocalStorage('todos_v1', [
 		{ text: 'Cortar cebolla', completed: false, isDeleted: false },
 	]);
 
@@ -32,18 +38,22 @@ function App() {
 			setTimeout(() => setShowConfetti(false), 5000);
 		}
 	}, [todos]);
+	// UseEffect executes the function when the dependencies in the second argument change
 
 	return (
-    <AppUI
-      displayedTodos={displayedTodos}
-      completed={completed}
-      total={total}
-      addTask={addTask}
-      deleteTask={deleteTask}
-      completeTask={completeTask}
-      searchTasks={searchTasks}
-      showConfetti={showConfetti}
-    />
+		<AppUI
+			displayedTodos={displayedTodos}
+			completed={completed}
+			total={total}
+			addTask={addTask}
+			deleteTask={deleteTask}
+			completeTask={completeTask}
+			searchTasks={searchTasks}
+			showConfetti={showConfetti}
+      loading={loading}
+      error={error}
+      setError={setError}
+		/>
 	);
 }
 

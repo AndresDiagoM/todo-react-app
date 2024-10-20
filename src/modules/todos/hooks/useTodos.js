@@ -10,6 +10,13 @@ function useTodos(todos, setTodos) {
 	);
 	const [total, setTotal] = React.useState(todos.length);
 
+  // Update displayedTodos when todos changes
+  React.useEffect(() => {
+    setDisplayedTodos(todos);
+    setCompleted(todos.filter(todo => todo.completed).length);
+    setTotal(todos.length);
+}, [todos]);
+
 	// Methods to manage the todos
 	const addTask = text => {
 		const newTodos = [...todos, { text, completed: false }];
@@ -53,7 +60,6 @@ function useTodos(todos, setTodos) {
 	};
 
 	return {
-		todos,
 		displayedTodos,
 		completed,
 		total,
