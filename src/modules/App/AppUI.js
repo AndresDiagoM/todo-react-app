@@ -1,5 +1,7 @@
 import React from 'react';
 import Confetti from 'react-confetti';
+import { LoginButton } from '../login/components/LoginButton';
+import { LoginModal } from '../login/components/Modal';
 import {
 	CreateTodo,
 	TodoCounter,
@@ -19,6 +21,8 @@ function AppUI() {
 		showConfetti,
 		loading,
 		error,
+		openModal,
+		setOpenModal,
 	} = React.useContext(TodoContext);
 
 	return (
@@ -46,6 +50,15 @@ function AppUI() {
 						))}
 				</TodoList>
 			</YourTask>
+
+			<LoginButton openModal={openModal} setOpenModal={setOpenModal} />
+
+			{openModal && (
+				<LoginModal setOpenModal={setOpenModal}>
+					{' '}
+					This is the modal content{' '}
+				</LoginModal>
+			)}
 		</div>
 	);
 }

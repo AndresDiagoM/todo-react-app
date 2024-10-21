@@ -1,0 +1,7 @@
+.login-icon {
+  font-size: 24px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black; /* Change icon color to black */
+}
