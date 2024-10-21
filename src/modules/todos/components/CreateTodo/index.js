@@ -2,9 +2,12 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from './lotties/animation2.json';
 import './CreateTodo.css';
+import { TodoContext } from '../../TodoContext';
 
 // new component
-function CreateTodo({ addTask }) {
+function CreateTodo() {
+  const { addTask } = React.useContext(TodoContext);
+
 	const [newTask, setNewTask] = React.useState('');
 
 	const handleAddTask = () => {
