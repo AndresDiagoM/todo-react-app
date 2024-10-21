@@ -34,7 +34,7 @@ function useLocalStorage(localStorageKey, initialValue) {
 		}
 	}, [items]);
 
-	return { items, setItems, loading, error, setError };
+	return { items, setItems, loading, setLoading, error, setError };
 }
 
 export { useLocalStorage };

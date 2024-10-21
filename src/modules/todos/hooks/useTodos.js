@@ -1,6 +1,6 @@
 import React from 'react';
 
-function useTodos(todos, setTodos) {
+function useTodos({ todos, setTodos, setLoading }) {
 	// State for search results
 	const [displayedTodos, setDisplayedTodos] = React.useState(todos);
 
@@ -10,12 +10,12 @@ function useTodos(todos, setTodos) {
 	);
 	const [total, setTotal] = React.useState(todos.length);
 
-  // Update displayedTodos when todos changes
-  React.useEffect(() => {
-    setDisplayedTodos(todos);
-    setCompleted(todos.filter(todo => todo.completed).length);
-    setTotal(todos.length);
-}, [todos]);
+	// Update displayedTodos when todos changes
+	React.useEffect(() => {
+		setDisplayedTodos(todos);
+		setCompleted(todos.filter(todo => todo.completed).length);
+		setTotal(todos.length);
+	}, [todos]);
 
 	// Methods to manage the todos
 	const addTask = text => {
@@ -54,6 +54,8 @@ function useTodos(todos, setTodos) {
 				: todos.filter(todo =>
 						todo.text.toLowerCase().includes(text.toLowerCase())
 					);
+
+		filteredTodos.length === 0 ? setLoading(true) : setLoading(false);
 
 		setDisplayedTodos(filteredTodos);
 		setCompleted(filteredTodos.filter(todo => todo.completed).length);

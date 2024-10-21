@@ -11,6 +11,7 @@ function App() {
 		items: todos,
 		setItems: setTodos,
 		loading,
+		setLoading,
 		error,
 		setError,
 	} = useLocalStorage('todos_v1', [
@@ -26,7 +27,7 @@ function App() {
 		deleteTask,
 		completeTask,
 		searchTasks,
-	} = useTodos(todos, setTodos);
+	} = useTodos({ todos, setTodos, setLoading });
 
 	// state to show confetti when all tasks are completed
 	const [showConfetti, setShowConfetti] = React.useState(false);
@@ -50,9 +51,9 @@ function App() {
 			completeTask={completeTask}
 			searchTasks={searchTasks}
 			showConfetti={showConfetti}
-      loading={loading}
-      error={error}
-      setError={setError}
+			loading={loading}
+			error={error}
+			setError={setError}
 		/>
 	);
 }
