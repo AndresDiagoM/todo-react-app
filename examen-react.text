@@ -1,0 +1,255 @@
+¿Para qué sirven los efectos en React?
+Elige la respuesta correcta
+
+
+a
+Para ejecutar bloques de código en componentes únicamente si se cumplen ciertas condiciones en cada nuevo render.
+
+b
+Para guardar información de nuestro componente, escuchar cuando tenga cambios y disparar un nuevo render.
+
+c
+Para ejecutar bloques de código que requieren asincronismo dentro de los componentes de nuestra aplicación.
+
+d
+Para ejecutar bloques de código dentro de los componentes únicamente cuando los usuarios realicen cualquier acción o interacción.
+
+
+
+
+¿Cuál es la diferencia entre componentes y elementos en React?
+Elige la respuesta correcta
+
+
+a
+Los elementos son grupos de componentes, reciben props y pueden crear estado o efectos. Los componentes reciben atributos o eventos y (casi siempre) se transforman en etiquetas de HTML.
+
+b
+Los componentes se crean con clases que extienden de React.Component. Los elementos son funciones que pueden usar React Hooks.
+
+c
+Los componentes son grupos de elementos, reciben props y pueden crear estado o efectos. Los elementos reciben atributos o eventos y (casi siempre) se transforman en etiquetas de HTML.
+
+d
+Los elementos se crean con clases que extienden de React.Component. Los componentes son funciones que pueden usar React Hooks.
+
+
+
+
+¿Para qué sirven los portales en React?
+Elige la respuesta correcta
+
+
+a
+Para teletransportar componentes a un documento HTML distinto a donde hace render el resto de la aplicación
+
+b
+Para comunicar componentes entre sí a pesar de tener componentes padres diferentes.
+
+c
+Para teletransportar componentes a un nodo de HTML distinto al nodo donde hace render el resto de la aplicación.
+
+d
+Para comunicar componentes sin tener que pasar la información como props por cada componente intermedio.
+
+
+
+
+
+¿Por qué debemos compilar nuestro proyecto con React.js antes de subirlo a GitHub Pages?
+Elige la respuesta correcta
+
+
+a
+No es obligatorio compilar nuestro proyecto antes de subirlo a GitHub Pages.
+
+b
+Porque GitHub Pages solo nos permite desplegar aplicaciones estáticas.
+
+c
+Porque GitHub Pages tiene muy poco espacio de almacenamiento.
+
+d
+Porque GitHub Pages no soporta interacciones de los usuarios.
+
+
+
+
+¿Para qué sirve React Context?
+Elige la respuesta correcta
+
+
+a
+Para comunicar componentes entre sí a pesar de tener componentes padres diferentes.
+
+b
+Para teletransportar componentes a un documento HTML distinto a donde hace render el resto de la aplicación.
+
+c
+Para comunicar componentes sin tener que pasar la información como props por cada componente intermedio.✅
+
+d
+Para teletransportar componentes a un nodo de HTML distinto al nodo donde hace render el resto de la aplicación.
+
+
+
+¿Cuál de los siguientes bloques de código ejecuta nuestro efecto únicamente la primera vez que se renderiza nuestro componente?
+Elige la respuesta correcta
+
+
+a
+React.useEffect(() => { console.log("Efectito"); }, window);
+
+b
+React.useEffect(() => { console.log("Efectito"); }, document.addEventListener('load'));
+
+c
+React.useEffect(() => { console.log("Efectito"); });
+
+d
+React.useEffect(() => { console.log("Efectito"); }, []);✅
+
+
+
+
+¿Cómo usamos React Context con la sintaxis de React Hooks?
+Elige la respuesta correcta
+
+
+a
+useContext(Contexto.Consumer)
+
+
+b
+useContext(Contexto.Provider) 
+
+
+c
+useContext(Contexto)✅
+
+
+d
+useContext("NombreDelContexto")
+
+
+ejemplo:
+import React, { createContext, useState } from 'react';
+
+const MyContext = createContext();
+
+function MyProvider({ children }) {
+  const [value, setValue] = useState('Hello, World!');
+
+  return (
+    <MyContext.Provider value={{ value, setValue }}>
+      {children}
+    </MyContext.Provider>
+  );
+}
+
+export { MyContext, MyProvider };
+
+
+
+
+¿Cómo escuchamos cuando los usuarios envíen un formulario con React?
+Elige la respuesta correcta
+
+
+a
+NombreComponente.addEventListener('formsubmit')
+
+
+b
+onSubmit✅
+
+
+c
+NombreComponente.addEventListener('submit')
+
+
+d
+submit
+
+
+e
+onsubmit
+
+
+
+
+¿Qué es JSX?
+Elige la respuesta correcta
+
+
+a
+Una sintaxis especial de JavaScript para escribir elementos y componentes de React que se siente como HTML.✅
+
+b
+Una versión muy futura de ECMAScript que nos permite escribir React con superpoderes de HTML.
+
+c
+Una sintaxis especial de HTML para escribir elementos y componentes de React que se siente como JavaScript.
+
+d
+Una versión muy futura de ECMAScript que nos permite escribir React con superpoderes de JavaScript.
+
+
+
+
+¿Qué son los eventos en React?
+Elige la respuesta correcta
+
+
+a
+La forma de recibir/escuchar/reaccionar ante los renders de nuestros componentes.
+
+
+b
+La forma de recibir/escuchar/reaccionar ante los cambios en el estado de nuestros componentes.
+
+c
+La forma de recibir/escuchar/reaccionar ante las acciones o interacciones de los usuarios en nuestra aplicación.✅
+
+
+
+¿Qué es el estado en React?
+Elige la respuesta correcta
+
+
+a
+La forma de comunicar componentes entre sí para transportar información.
+
+b
+La forma en que React guarda información de nuestro componente para escuchar cuando tenga cambios y disparar un nuevo render.✅
+
+c
+La forma de recibir/escuchar/reaccionar ante las acciones o interacciones de los usuarios en nuestra aplicación.
+
+
+
+¿Qué significa el "ecosistema de React"?
+Elige la respuesta correcta
+
+
+a
+Todas las herramientas open-source (oficiales y no oficiales) relacionadas con React.✅
+
+b
+Todas las herramientas open-source (únicamente las oficiales) relacionadas con React.
+
+c
+Algunas de las herramientas internas que usa React para construir su código fuente.
+
+
+
+
+¿Cómo creamos un portal en React?
+Elige la respuesta correcta
+
+
+a
+ReactDOM.createPortal✅
+
+b
+React.createPortal
