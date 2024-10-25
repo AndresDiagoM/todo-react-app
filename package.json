@@ -1,7 +1,7 @@
 {
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
-  "homepage": "https://andresdiagom.github.io/curso-react-platzi/",
+  "homepage": "https://github.com/AndresDiagoM/todo-react-app",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18",

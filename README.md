@@ -70,6 +70,41 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Config eslint and prettier
+
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
+
+```
+ npx eslint --init    
+
+ npx eslint .\src\components\ --fix   
+
+ npm i -D eslint-config-prettier   
+
+ npx prettier .\src\components --write 
+```
+
+
+## How to deploy with github pages
+
+First, you need to install the gh-pages package as a dev-dependency of your project `npm install gh-pages --save-dev`. 
+
+Then, you need to add some properties to your package.json file:
+
+```json
+{
+  "homepage": "https://myusername.github.io/my-app",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
+```
+
+Finally, you can deploy your app by running `npm run build` and then `npm run deploy`. This will create a new branch called gh-pages and push your build files to it. You can now access your app at the URL you specified in the homepage property.
+
+In the repository settings on GitHub, you can set the source of the GitHub Pages to the gh-pages branch, and the root directory.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -101,14 +136,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-## Config eslint and prettier
-
-npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
-
- npx eslint --init    
-
- npx eslint .\src\components\ --fix   
-
- npm i -D eslint-config-prettier   
-
- npx prettier .\src\components --write     

@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/curso-react-platzi/static/css/main.ee41d0da.css",
-    "main.js": "/curso-react-platzi/static/js/main.687612ef.js",
-    "index.html": "/curso-react-platzi/index.html",
-    "main.ee41d0da.css.map": "/curso-react-platzi/static/css/main.ee41d0da.css.map",
-    "main.687612ef.js.map": "/curso-react-platzi/static/js/main.687612ef.js.map"
+    "main.css": "/AndresDiagoM/todo-react-app/static/css/main.ee41d0da.css",
+    "main.js": "/AndresDiagoM/todo-react-app/static/js/main.687612ef.js",
+    "index.html": "/AndresDiagoM/todo-react-app/index.html",
+    "main.ee41d0da.css.map": "/AndresDiagoM/todo-react-app/static/css/main.ee41d0da.css.map",
+    "main.687612ef.js.map": "/AndresDiagoM/todo-react-app/static/js/main.687612ef.js.map"
   },
   "entrypoints": [
     "static/css/main.ee41d0da.css",
