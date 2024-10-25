@@ -7,8 +7,6 @@ const TodoContext = React.createContext();
 function TodoProvider({ children }) {
 	// Here is where the other components will be wrapped, and can use the context
 
-  const [openModal, setOpenModal] = React.useState(false);
-
 	// State for the list of tasks
 	const {
 		items: todos,
@@ -59,8 +57,6 @@ function TodoProvider({ children }) {
 				setLoading,
 				error,
 				setError,
-        openModal,
-        setOpenModal,
 			}}
 		>
 			{children}
